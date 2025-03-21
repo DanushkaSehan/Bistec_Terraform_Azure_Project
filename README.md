@@ -150,7 +150,10 @@ kubectl get nodes
 
 ## Troubleshooting & Issues Faced
 - **Error: `subscription_id` is a required provider property ** → Ensure Azure subscription ID is set in Terraform.
-- - **Error: Access denited Resource Froup ** → Ensure Azure Default resource group is set in azure.
+- **Error: Access denited Resource Group ** → Ensure Azure Default resource group is set in azure.
+- [Error: Terraform does not have the necessary permissions to register Resource Providers](https://stackoverflow.com/questions/57892557/terraform-azure-as-a-provider-and-limited-access-account)
+  https://stackoverflow.com/questions/57892557/terraform-azure-as-a-provider-and-limited-access-account
+  ![Screenshot 2025-03-19 182942](https://github.com/user-attachments/assets/2f588dc5-7726-400c-8162-d57b6844dbb9)
 - **Limited resources in KodeKloud sandbox** → Used `Standard_D2s_v3` VM with a single resource group.
 - ![Screenshot 2025-03-19 183136](https://github.com/user-attachments/assets/25da7e92-c4e1-4e64-b7cd-421c103d05a0)
 - **Service not accessible?** → Ensure the service type is `LoadBalancer` and check `kubectl get svc`.
