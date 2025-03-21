@@ -28,6 +28,7 @@ minikube start
 
 If you encounter errors, ensure virtualization is enabled in your BIOS settings. If you have enabled Hyper-V, disable the default Hyper-V and restart.
 Error:
+
 (C:\Windows\System32>minikube start --driver=virtualboxW0320 10:52:29.081445   23344 main.go:291] Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\DELL\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified....)
 
 Check if Hyper-V is Enabled
