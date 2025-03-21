@@ -18,6 +18,7 @@ To Learn about Docker, Kubernetes, Terraform:
 - [Kubernetes 1)](https://www.youtube.com/watch?v=xvxXEK3WDfI)
 - [Kubernetes 2)](https://www.youtube.com/watch?v=MIxJ9_kfP54)
 - [Kubernetes 3)](https://kodekloud.com/courses/kubernetes-for-the-absolute-beginners-hands-on)
+- [Kubernetes Resource limit](https://sysdig.com/blog/kubernetes-limits-requests/)
 - [Terraform](https://www.youtube.com/watch?v=VZbrzp0dkCo)
 
 ## Local Testing with Minikube
