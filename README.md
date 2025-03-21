@@ -8,7 +8,7 @@ Ensure you have the following installed before proceeding:
 
 - [Git](https://git-scm.com/downloads)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-- [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+- [Terraform](https://developer.hashicorp.com/terraform/install)
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) or any virtualization software
 - [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
