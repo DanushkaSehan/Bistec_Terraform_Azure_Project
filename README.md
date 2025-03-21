@@ -75,14 +75,14 @@ bcdedit /set hypervisorlaunchtype off
    ```sh
    kubectl get svc
    ```
-![Screenshot 2025-03-21 131519](https://github.com/user-attachments/assets/f2031cfc-5b72-4f44-91b7-ca9841d3e5b7)
+   ![Screenshot 2025-03-21 131519](https://github.com/user-attachments/assets/f2031cfc-5b72-4f44-91b7-ca9841d3e5b7)
 
 7. Open in browser:
    ```sh
    minikube service nginx-service
    ```
    _(You should see server response in the browser.)_
-![Screenshot 2025-03-21 132409](https://github.com/user-attachments/assets/b4a22005-c99c-4cb8-8e27-532f90e19fac)
+   ![Screenshot 2025-03-21 132409](https://github.com/user-attachments/assets/b4a22005-c99c-4cb8-8e27-532f90e19fac)
 
 7. Delete a Specific Service:
    ```sh
@@ -101,7 +101,7 @@ bcdedit /set hypervisorlaunchtype off
    ```sh
    terraform init
    ```
-![Screenshot 2025-03-21 140816](https://github.com/user-attachments/assets/15085558-a56e-403c-aa7a-91261f6ada75)
+   ![Screenshot 2025-03-21 140816](https://github.com/user-attachments/assets/15085558-a56e-403c-aa7a-91261f6ada75)
 
 4. Preview the changes:
    ```sh
@@ -113,7 +113,7 @@ bcdedit /set hypervisorlaunchtype off
    ```sh
    terraform apply
    ```
-![Screenshot 2025-03-21 140738](https://github.com/user-attachments/assets/199486db-8d90-44d1-9552-6d0d302fffcf)
+   ![Screenshot 2025-03-21 140738](https://github.com/user-attachments/assets/199486db-8d90-44d1-9552-6d0d302fffcf)
 
 
 ### Step 2: Connect to AKS Cluster
@@ -151,8 +151,7 @@ kubectl get nodes
 ## Troubleshooting & Issues Faced
 - **Error: `subscription_id` is a required provider property ** → Ensure Azure subscription ID is set in Terraform.
 - **Error: Access denited Resource Group ** → Ensure Azure Default resource group is set in azure.
-- [Error: Terraform does not have the necessary permissions to register Resource Providers](https://stackoverflow.com/questions/57892557/terraform-azure-as-a-provider-and-limited-access-account)
-  https://stackoverflow.com/questions/57892557/terraform-azure-as-a-provider-and-limited-access-account
+- **[Error: Terraform does not have the necessary permissions to register Resource Providers](https://stackoverflow.com/questions/57892557/terraform-azure-as-a-provider-and-limited-access-account)
   ![Screenshot 2025-03-19 182942](https://github.com/user-attachments/assets/2f588dc5-7726-400c-8162-d57b6844dbb9)
 - **Limited resources in KodeKloud sandbox** → Used `Standard_D2s_v3` VM with a single resource group.
 - ![Screenshot 2025-03-19 183136](https://github.com/user-attachments/assets/25da7e92-c4e1-4e64-b7cd-421c103d05a0)
