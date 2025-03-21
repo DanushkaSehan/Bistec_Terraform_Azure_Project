@@ -86,7 +86,7 @@ bcdedit /set hypervisorlaunchtype off
 
 7. Delete a Specific Service:
    ```sh
-   minikube service nginx-service
+   kubectl delete service <service-name>
    ```
 
 ## Deploying to Azure AKS
