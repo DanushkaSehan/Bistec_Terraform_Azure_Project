@@ -1,12 +1,13 @@
-# AKS IaC and Deployment Assignment
+ # AKS IaC and Deployment Assignment
 
 ## Introduction
-This project demonstrates how to set up an **AKS cluster** using **Terraform** and deploy a **simple containerized application** to it. The goal is to gain handson experience with AKS, Kubernetes, and deployment automation.
+This project demonstrates how to set up an **AKS cluster** using **Terraform** and deploy a **simple containerized application** to it. The goal is to gain hands on experience with AKS, Kubernetes, and deployment automation.
 
 ## Prerequisites
 Ensure you have the following installed before proceeding:
 
 - [Git](https://git-scm.com/downloads)
+- [Azure Account](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 - [Terraform](https://developer.hashicorp.com/terraform/install)
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/)
@@ -20,6 +21,15 @@ To Learn about Docker, Kubernetes, Terraform:
 - [Kubernetes 3)](https://kodekloud.com/courses/kubernetes-for-the-absolute-beginners-hands-on)
 - [Kubernetes Resource limit](https://sysdig.com/blog/kubernetes-limits-requests/)
 - [Terraform](https://www.youtube.com/watch?v=VZbrzp0dkCo)
+
+Deployment Information:
+This project is deployed using **KodeKloud Sandbox**, which is valid for **only 3 hours** per session.  
+
+### Important Notes:
+- If you are using the **free tier** or **pay-as-you-go** subscription, some settings or limitations may vary.
+- Ensure that you save your work frequently, as the sandbox environment **resets after 3 hours**.
+- For persistent deployments, consider using a cloud provider with a longer session duration.
+
 
 ## Local Testing with Minikube
 
@@ -137,6 +147,7 @@ kubectl get nodes
    ![Screenshot 2025-03-21 124128](https://github.com/user-attachments/assets/cdf1d5c7-9858-4925-a864-5658790d5a59)
 
    Access the app using the external IP in your browser.
+   
    ![Screenshot 2025-03-21 125236](https://github.com/user-attachments/assets/282c58df-e304-491e-b676-ff0056160231)
 
 ## Troubleshooting & Issues Faced
