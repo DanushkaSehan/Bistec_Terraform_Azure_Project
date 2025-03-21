@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment  # Name of the deployment
 spec:
-  replicas: 2
+  replicas: 2  # Number of pod replicas (in kodekloud can only use 2 but can be increase in other subcriptions)
   selector:
     matchLabels:
-      app: nginx
+      app: nginx  # Match pods with this label
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx  # Label for the pod
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: nginx  # Container name
+        image: nginx  # Official Nginx image
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "100m"
+            memory: "512Mi"  # Max memory allowed
+            cpu: "500m"  # Max CPU-- half a core
           requests:
-            memory: "256Mi"
-            cpu: "250m"
+            memory: "256Mi"  # Minimum memory required
+            cpu: "250m"  # Minimum CPU required
         ports:
-        - containerPort: 80
+        - containerPort: 80  # Expose port 80 - HTTP traffic
