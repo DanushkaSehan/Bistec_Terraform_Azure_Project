@@ -15,7 +15,9 @@ Ensure you have the following installed before proceeding:
 
 To Learn about Docker, Kubernetes, Terraform:
 - [Docker](https://www.youtube.com/watch?v=slcKUz6CyLg)
-- [Kubernetes)]([https://www.youtube.com/watch?v=xvxXEK3WDfI]([https://www.youtube.com/watch?v=MIxJ9_kfP54](https://kodekloud.com/courses/kubernetes-for-the-absolute-beginners-hands-on)))
+- [Kubernetes 1)](https://www.youtube.com/watch?v=xvxXEK3WDfI)
+- [Kubernetes 2)](https://www.youtube.com/watch?v=MIxJ9_kfP54)
+- [Kubernetes 3)](https://kodekloud.com/courses/kubernetes-for-the-absolute-beginners-hands-on)
 - [Terraform](https://www.youtube.com/watch?v=VZbrzp0dkCo)
 
 ## Local Testing with Minikube
