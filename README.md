@@ -23,7 +23,7 @@ To Learn about Docker, Kubernetes, Terraform:
 - [Terraform](https://www.youtube.com/watch?v=VZbrzp0dkCo)
 
 Deployment Information:
-This project is deployed using **KodeKloud Playground**, which is valid for **only 3 hours** per session. 
+This project is deployed using **KodeKloud Playground**, which is valid for **only 1h-3h hours** per session. 
 (The deployment's external IP address will change each time)
 
 ### Important Notes:
