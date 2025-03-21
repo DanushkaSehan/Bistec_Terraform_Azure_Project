@@ -1,7 +1,7 @@
 # AKS IaC and Deployment Assignment
 
 ## Introduction
-This project demonstrates how to set up an **Azure Kubernetes Service (AKS) cluster** using **Terraform** (Infrastructure as Code) and deploy a **simple containerized application** to it. The goal is to gain hands-on experience with AKS, Kubernetes, and deployment automation.
+This project demonstrates how to set up an **AKS cluster** using **Terraform** and deploy a **simple containerized application** to it. The goal is to gain handson experience with AKS, Kubernetes, and deployment automation.
 
 ## Prerequisites
 Ensure you have the following installed before proceeding:
@@ -13,81 +13,69 @@ Ensure you have the following installed before proceeding:
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) or any virtualization software
 - [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
+To Learn about Docker, Kubernetes, Terraform:
+- [Docker](https://www.youtube.com/watch?v=slcKUz6CyLg)
+- [Kubernetes)]([https://www.youtube.com/watch?v=xvxXEK3WDfI]([https://www.youtube.com/watch?v=MIxJ9_kfP54](https://kodekloud.com/courses/kubernetes-for-the-absolute-beginners-hands-on)))
+- [Terraform](https://www.youtube.com/watch?v=VZbrzp0dkCo)
+
 ## Local Testing with Minikube
 
 ### Step 1: Setting up Minikube Cluster
 ```sh
 minikube start
 ```
-If you encounter errors, ensure virtualization is enabled in your BIOS settings. If using Hyper-V, disable the default Hyper-V and restart.
+![Screenshot 2025-03-21 131519](https://github.com/user-attachments/assets/2d379121-0d59-424c-ae37-a4806eeb0b06)
 
+If you encounter errors, ensure virtualization is enabled in your BIOS settings. If you have enabled Hyper-V, disable the default Hyper-V and restart.
+Error:
+(C:\Windows\System32>minikube start --driver=virtualboxW0320 10:52:29.081445   23344 main.go:291] Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\DELL\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified....)
+
+Check if Hyper-V is Enabled
+```sh
+systeminfo | find "Hyper-V Requirements"
+```
+Disable Hyper-V
+```sh
+bcdedit /set hypervisorlaunchtype off
+```
 ### Step 2: Deploy Application Locally
 
-1. Create a Kubernetes directory:
+1. Create a project directory and Kubernetes directory:
    ```sh
-   mkdir -p K8s && cd K8s
+   mkdir -p ProjectAKS && cd ProjectAKS
+   mkdir -p K8s
    ```
 
 2. Create a `deployment.yaml` file:
 
-   ```yaml
-   apiVersion: apps/v1
-   kind: Deployment
-   metadata:
-     name: echoserver-deployment
-   spec:
-     replicas: 2
-     selector:
-       matchLabels:
-         app: echoserver
-     template:
-       metadata:
-         labels:
-           app: echoserver
-       spec:
-         containers:
-         - name: echoserver
-           image: k8s.gcr.io/echoserver:1.4
-           ports:
-           - containerPort: 8080
-   ```
-
 3. Apply the deployment:
    ```sh
-   kubectl apply -f deployment.yaml
+   kubectl apply -f K8s/deployment.yaml
    ```
-
 4. Create a `service.yaml` file:
-   ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: echoserver-service
-   spec:
-     selector:
-       app: echoserver
-     ports:
-     - protocol: TCP
-       port: 80
-       targetPort: 8080
-     type: LoadBalancer
-   ```
 
 5. Apply the service:
    ```sh
-   kubectl apply -f service.yaml
+   kubectl apply -f K8s/service.yaml
    ```
 
 6. Get the service details:
    ```sh
    kubectl get svc
    ```
+![Screenshot 2025-03-21 131519](https://github.com/user-attachments/assets/f2031cfc-5b72-4f44-91b7-ca9841d3e5b7)
 
 7. Open in browser:
    ```sh
-   minikube service echoserver-service
+   minikube service nginx-service
    ```
    _(You should see server response in the browser.)_
+![Screenshot 2025-03-21 132409](https://github.com/user-attachments/assets/b4a22005-c99c-4cb8-8e27-532f90e19fac)
+
+7. Delete a Specific Service:
+   ```sh
+   minikube service nginx-service
+   ```
 
 ## Deploying to Azure AKS
 
@@ -101,20 +89,27 @@ If you encounter errors, ensure virtualization is enabled in your BIOS settings.
    ```sh
    terraform init
    ```
+![Screenshot 2025-03-21 140816](https://github.com/user-attachments/assets/15085558-a56e-403c-aa7a-91261f6ada75)
+
 4. Preview the changes:
    ```sh
    terraform plan
    ```
+   ![Screenshot 2025-03-21 140754](https://github.com/user-attachments/assets/e18aad6f-b616-45af-adb5-2cfefa93b915)
+
 5. Apply the configuration:
    ```sh
-   terraform apply --auto-approve
+   terraform apply
    ```
+![Screenshot 2025-03-21 140738](https://github.com/user-attachments/assets/199486db-8d90-44d1-9552-6d0d302fffcf)
+
 
 ### Step 2: Connect to AKS Cluster
 ```sh
 az aks get-credentials --resource-group <your-resource-group> --name <your-cluster-name>
 kubectl get nodes
 ```
+![Screenshot 2025-03-21 124623](https://github.com/user-attachments/assets/da9fa579-ff5a-4ec9-b877-f9cbd15d81c7)
 
 ### Step 3: Deploy Application to AKS
 1. Apply the deployment:
@@ -133,22 +128,30 @@ kubectl get nodes
    ```sh
    kubectl get svc
    ```
+   ![Screenshot 2025-03-21 124936](https://github.com/user-attachments/assets/2d1efc67-efe1-4166-bb10-5a02b0e256e6)
+   ![Screenshot 2025-03-21 125610](https://github.com/user-attachments/assets/46ca079c-6b37-4c6a-b11c-36b3d963ac70)
+   ![Screenshot 2025-03-21 124128](https://github.com/user-attachments/assets/cdf1d5c7-9858-4925-a864-5658790d5a59)
+
    Access the app using the external IP in your browser.
+   ![Screenshot 2025-03-21 125236](https://github.com/user-attachments/assets/282c58df-e304-491e-b676-ff0056160231)
 
 ## Troubleshooting & Issues Faced
-- **Error: `subscription_id` is a required provider property** → Ensure Azure subscription ID is set in Terraform.
+- **Error: `subscription_id` is a required provider property ** → Ensure Azure subscription ID is set in Terraform.
+- - **Error: Access denited Resource Froup ** → Ensure Azure Default resource group is set in azure.
 - **Limited resources in KodeKloud sandbox** → Used `Standard_D2s_v3` VM with a single resource group.
+- ![Screenshot 2025-03-19 183136](https://github.com/user-attachments/assets/25da7e92-c4e1-4e64-b7cd-421c103d05a0)
 - **Service not accessible?** → Ensure the service type is `LoadBalancer` and check `kubectl get svc`.
 
 ## Repository Structure
 ```
-├── K8s
-│   ├── deployment.yaml
-│   ├── service.yaml
-├── terraform
-│   ├── main.tf
+├── ProjectAKS
+│     ├──K8s
+│         ├── deployment.yaml
+│         ├── service.yaml
+├
+│     ├── main.tf
 ├── README.md
 ```
 
 ## Conclusion
-This project covers setting up an AKS cluster using Terraform, deploying a containerized application, and testing it both locally (Minikube) and in Azure. It provides hands-on experience with Kubernetes and Infrastructure as Code (IaC).
+This project covers setting up an AKS cluster using Terraform, deploying a containerized application, and testing it both locally (Minikube) and in Azure.
