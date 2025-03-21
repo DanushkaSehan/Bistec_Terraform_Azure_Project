@@ -23,13 +23,11 @@ To Learn about Docker, Kubernetes, Terraform:
 - [Terraform](https://www.youtube.com/watch?v=VZbrzp0dkCo)
 
 Deployment Information:
-This project is deployed using **KodeKloud Playground**, which is valid for **only 3 hours** per session.  
+This project is deployed using **KodeKloud Playground**, which is valid for **only 3 hours** per session. 
+(The deployment's external IP address will change each time)
 
 ### Important Notes:
 - If you are using the **free tier** or **pay-as-you-go** subscription, some settings or limitations may vary.
-- Ensure that you save your work frequently, as the sandbox environment **resets after 3 hours**.
-- For persistent deployments, consider using a cloud provider with a longer session duration.
-
 
 ## Local Testing with Minikube
 
